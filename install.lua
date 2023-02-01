@@ -12,4 +12,6 @@
 -- shell.run( program, command, "f9bjVNKz", destination .. "textC" )
 -- shell.run( program, command, "2ZwpF5zi", destination .. "draw" )
 
+term.clear()
+
 print("Hallo")
