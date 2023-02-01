@@ -13,5 +13,6 @@
 -- shell.run( program, command, "2ZwpF5zi", destination .. "draw" )
 
 term.clear()
+term.setCursorPos(1,1)
 
 print("Hallo")
