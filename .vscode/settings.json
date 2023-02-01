@@ -1,0 +1,10 @@
+{
+    "Lua.diagnostics.globals": [
+        "destination",
+        "program"
+    ],
+    "Lua.diagnostics.disable": [
+        "undefined-global",
+        "lowercase-global"
+    ]
+}
