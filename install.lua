@@ -10,9 +10,10 @@
 -- shell.run( program, command, "xj8dATfq", destination .. "network" )
 -- shell.run( program, command, "uDFZey2b", destination .. "fileSys" )
 -- shell.run( program, command, "f9bjVNKz", destination .. "textC" )
+
 -- shell.run( program, command, "2ZwpF5zi", destination .. "draw" )
 
 term.clear()
 term.setCursorPos(1,1)
 
-print("Hallo")
+print("Test")
