@@ -374,7 +374,7 @@ while true do
         elseif currentTab == console and btn == 1 and
             x >= 10 and x <= 17 and y == 1 then
             manualTab()
-            net.close("right", "server_control", "server")
+            net.close("right")
             
         end
     end
