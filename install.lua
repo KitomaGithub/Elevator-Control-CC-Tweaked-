@@ -11,6 +11,10 @@ fileSys = "https://raw.githubusercontent.com/KitomaGithub/Elevator-Control-CC-Tw
 network = "https://raw.githubusercontent.com/KitomaGithub/Elevator-Control-CC-Tweaked-/master/modules/network.lua"
 textC = "https://raw.githubusercontent.com/KitomaGithub/Elevator-Control-CC-Tweaked-/master/modules/textC.lua"
 
+destination = "images/"
+textC = "https://raw.githubusercontent.com/KitomaGithub/Elevator-Control-CC-Tweaked-/master/modules/textC.lua"
+
+
 serverFile = "https://raw.githubusercontent.com/KitomaGithub/Elevator-Control-CC-Tweaked-/master/server_control.lua"
 
 shell.run( program, elevMove, destination .. "elevMove.lua" )
