@@ -63,6 +63,9 @@ function textC.clear(side)
 end
 
 function dupeTxt(txt, amount)
+    expect(1, txt, "string")
+    expect(2, amount, "number")
+    
     tmp = ""
     
     for x = 1, amount, 1 do

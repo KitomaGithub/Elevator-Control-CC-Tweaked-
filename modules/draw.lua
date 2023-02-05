@@ -48,6 +48,29 @@ function draw.box(w,h,x,y,color,side)
     term.redirect(origMonitor)
 end
 
+function draw.square(w,h,x,y,color,side)
+    expect(1, w, "number")
+    expect(2, h, "number")
+    expect(3, x, "number")
+    expect(4, y, "number")
+    expect(5, color, "string")
+    expect(6, side, "string", "nil")
+   	
+    if side ~= nil then
+        monitor = peripheral.wrap(side)
+        term.redirect(monitor)
+    end
+    theColor = pickColor[color]
+    paintutils.drawFilledBox(
+        x, y,
+        w + x - 1, h + y - 1,
+        theColor 
+    )
+
+	term.setBackgroundColor(origColor)
+    term.redirect(origMonitor)
+end
+
 function draw.pixel(x,y,color,side)
     expect(1, x, "number")
     expect(2, y, "number")
@@ -61,6 +84,30 @@ function draw.pixel(x,y,color,side)
     
     theColor = pickColor[color]
     paintutils.drawPixel(x,y,theColor)
+
+	term.setBackgroundColor(origColor)
+    term.redirect(origMonitor)
+end
+
+function draw.image(imagePath,x,y,side)
+    expect(1, imagePath, "string")
+    expect(2, x, "number")
+    expect(3, y, "number")
+    expect(4, side, "string", "nil")
+    
+    if side ~= nil then
+        monitor = peripheral.wrap(side)
+        term.redirect(monitor)
+    end
+
+    img = paintutils.loadImage(imagePath)
+
+    if img ~= nil then
+        paintutils.drawImage(img, x, y)
+    else
+        print("[*] invalid image")
+        exit()
+    end
 
 	term.setBackgroundColor(origColor)
     term.redirect(origMonitor)
