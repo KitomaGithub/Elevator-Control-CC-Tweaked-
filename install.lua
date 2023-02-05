@@ -31,11 +31,12 @@ shell.run( program, elevMove, moduleDestination .. "elevMove.lua" )
 shell.run( program, draw, moduleDestination .. "draw.lua" )
 shell.run( program, fileSys, moduleDestination .. "fileSys.lua" )
 shell.run( program, network, moduleDestination .. "network.lua" )
+shell.run( program, textC, moduleDestination .. "textC.lua" )
 
-shell.run( program, imgUp, imageDestination .. "up_arrow.lua" )
-shell.run( program, imgDown, imageDestination .. "down_arrow.lua" )
-shell.run( program, imgLeft, imageDestination .. "left_arrow.lua" )
-shell.run( program, imgRight, imageDestination .. "right_arrow.lua" )
+shell.run( program, imgUp, imageDestination .. "up_arrow.nfp" )
+shell.run( program, imgDown, imageDestination .. "down_arrow.nfp" )
+shell.run( program, imgLeft, imageDestination .. "left_arrow.nfp" )
+shell.run( program, imgRight, imageDestination .. "right_arrow.nfp" )
 
 shell.run( program, serverFile, "server_control.lua" )
 
