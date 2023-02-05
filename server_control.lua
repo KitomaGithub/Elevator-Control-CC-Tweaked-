@@ -389,15 +389,15 @@ while true do
     end
 
     if event == "rednet_message" then
-        protocol = eventData[4]
+        protocol = eventData[5]["sProtocol"]
 
         if protocol == "elev_cmd" then
 
-            user_id = eventData[2]
+            user_id = eventData[4]
             verify = verifyUsers(user_id)
     
             if verify and currentTab == console then
-                cmd = eventData[3]
+                cmd = eventData[5]["message"]
                 
                 checkCursor()
 
