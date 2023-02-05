@@ -2,7 +2,7 @@ if fs.exists("disk/modules") then
     fs.delete("disk/modules")
 end
  
-destination = "disk/modules/"
+destination = "modules/"
 program = "wget"
 
 draw = "https://raw.githubusercontent.com/KitomaGithub/Elevator-Control-CC-Tweaked-/master/modules/draw.lua"
