@@ -388,7 +388,7 @@ while true do
         end
     end
 
-    if event == "rednet_message" then
+    if event == "modem_message" then
         protocol = eventData[5]["sProtocol"]
 
         if protocol == "elev_cmd" then
