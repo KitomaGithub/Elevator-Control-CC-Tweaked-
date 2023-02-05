@@ -1,27 +1,41 @@
-if fs.exists("disk/modules") then
-    fs.delete("disk/modules")
+if fs.exists("modules/") then
+    fs.delete("modules/")
+end
+
+if fs.exists("images/") then
+    fs.delete("images/")
 end
  
-destination = "modules/"
+moduleDestination = "modules/"
+imageDestination = "images/"
+
 program = "wget"
+webModules = "https://raw.githubusercontent.com/KitomaGithub/Elevator-Control-CC-Tweaked-/master/modules/"
+webImages = "https://raw.githubusercontent.com/KitomaGithub/Elevator-Control-CC-Tweaked-/master/images/"
 
-draw = "https://raw.githubusercontent.com/KitomaGithub/Elevator-Control-CC-Tweaked-/master/modules/draw.lua"
-elevMove = "https://raw.githubusercontent.com/KitomaGithub/Elevator-Control-CC-Tweaked-/master/modules/elevMove.lua"
-fileSys = "https://raw.githubusercontent.com/KitomaGithub/Elevator-Control-CC-Tweaked-/master/modules/fileSys.lua"
-network = "https://raw.githubusercontent.com/KitomaGithub/Elevator-Control-CC-Tweaked-/master/modules/network.lua"
-textC = "https://raw.githubusercontent.com/KitomaGithub/Elevator-Control-CC-Tweaked-/master/modules/textC.lua"
+draw = webModules.."draw.lua"
+elevMove = webModules.."elevMove.lua"
+fileSys = webModules.."fileSys.lua"
+network = webModules.."network.lua"
+textC = webModules.."textC.lua"
 
-destination = "images/"
-textC = "https://raw.githubusercontent.com/KitomaGithub/Elevator-Control-CC-Tweaked-/master/modules/textC.lua"
+imgUp = webImages.."up_arrow.nfp"
+imgDown = webImages.."down_arrow.nfp"
+imgLeft = webImages.."left_arrow.nfp"
+imgRight = webImages.."right_arrow.nfp"
 
 
 serverFile = "https://raw.githubusercontent.com/KitomaGithub/Elevator-Control-CC-Tweaked-/master/server_control.lua"
 
-shell.run( program, elevMove, destination .. "elevMove.lua" )
-shell.run( program, draw, destination .. "draw.lua" )
-shell.run( program, fileSys, destination .. "fileSys.lua" )
-shell.run( program, network, destination .. "network.lua" )
-shell.run( program, textC, destination .. "textC.lua" )
+shell.run( program, elevMove, moduleDestination .. "elevMove.lua" )
+shell.run( program, draw, moduleDestination .. "draw.lua" )
+shell.run( program, fileSys, moduleDestination .. "fileSys.lua" )
+shell.run( program, network, moduleDestination .. "network.lua" )
+
+shell.run( program, imgUp, imageDestination .. "up_arrow.lua" )
+shell.run( program, imgDown, imageDestination .. "down_arrow.lua" )
+shell.run( program, imgLeft, imageDestination .. "left_arrow.lua" )
+shell.run( program, imgRight, imageDestination .. "right_arrow.lua" )
 
 shell.run( program, serverFile, "server_control.lua" )
 
