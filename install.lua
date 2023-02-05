@@ -5,7 +5,11 @@ end
 if fs.exists("images/") then
     fs.delete("images/")
 end
- 
+
+if fs.exists("data/") then
+    fs.delete("data/")
+end
+
 moduleDestination = "modules/"
 imageDestination = "images/"
 

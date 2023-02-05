@@ -10,6 +10,13 @@ require("/modules/draw")
 -- CLear screen
 textC.clear()
 
+-- get the peripherals sides
+modem = peripheral.find("modem")
+motor = peripheral.find("electric_motor")
+
+modemSide = peripheral.getName(modem)
+motorSide = peripheral.getName(motor)
+
 -- Text and Background Color
 barBg = "red"
 tab1Bg = "yellow"
@@ -168,13 +175,13 @@ function elevMove(cmd, destination)
             print("[*] Elevator Moving Up...")
             floor = floor + 1
             file.save("data/floor/current", floor)
-            sleep(2)
+            elevator.up(motorSide, 10)
             print("[*] Elevator arrived at Floor: "..floor)
         elseif cmd == "down" and tonumber(floor) > tonumber(min) then
             print("[*] Elevator Moving down...")
             floor = floor - 1
             file.save("data/floor/current", floor)
-            sleep(2)
+            elevator.down("left", 10)
             print("[*] Elevator arrived at Floor: "..floor)
         elseif cmd == "moveTo" then
             if floor > tempFloor then
@@ -198,7 +205,7 @@ function elevMove(cmd, destination)
             term.write("Currently")
             term.setCursorPos(21,15)
             term.write("Moving Up...")
-            sleep(2)
+            elevator.up(motorSide, 10)
             draw.square(16, 5, 20, 13, "black")
             term.setCursorPos(14,7)
             print("[*] Elevator arrived at destination")
@@ -217,7 +224,7 @@ function elevMove(cmd, destination)
             term.write("Currently")
             term.setCursorPos(21,15)
             term.write("Moving Down...")
-            sleep(2)
+            elevator.down(motorSide, 10)
             draw.square(16, 5, 20, 13, "black")
             term.setCursorPos(14,7)
             print("[*] Elevator arrived at destination")
@@ -318,7 +325,7 @@ print("[*] Starting Server. . .")
 sleep(2)
 
 print("[*] Opening Network. . .")
-net.open("right", "server_control", "server")
+net.open(modemSide, "server_control", "server")
 
 consoleTab()
 
@@ -368,13 +375,13 @@ while true do
                 elevMove("moveTo", tonumber(tempFloor))
             elseif x >= 1 and x <= 9 and y == 1 then
                 consoleTab()
-                net.open("right", "server_control", "server")
+                net.open(modemSide, "server_control", "server")
             end
 
         elseif currentTab == console and btn == 1 and
             x >= 10 and x <= 17 and y == 1 then
             manualTab()
-            net.close("right")
+            net.close(modemSide)
             
         end
     end
